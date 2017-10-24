@@ -51,5 +51,10 @@ public class ConstValueProviderTest {
         result = constValueProvider.nextValue(new Context(null, null, null), new Field("testField", TypeConst.LONG, null));
         Assert.assertEquals(Long.valueOf(propValue), result);
 
+        result = constValueProvider.nextValue(new Context(null, null, null), new Field("testField", TypeConst.DOUBLE, null));
+        Assert.assertEquals(Double.valueOf(propValue), result);
+
+        result = constValueProvider.nextValue(new Context(null, null, null), new Field("testField", TypeConst.FLOAT, null));
+        Assert.assertEquals(Float.valueOf(propValue), result);
     }
 }

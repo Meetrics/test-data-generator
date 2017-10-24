@@ -57,6 +57,12 @@ public class ExpressionProvider implements ValueProvider {
             case TypeConst.BOOLEAN:
                 type = Boolean.class;
                 break;
+            case TypeConst.DOUBLE:
+                type = Double.class;
+                break;
+            case TypeConst.FLOAT:
+                type = Float.class;
+                break;
             default:
                 throw new IllegalArgumentException("Field type not known: " + field.getType());
         }

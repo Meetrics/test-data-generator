@@ -59,6 +59,12 @@ public abstract class AbstractGenerator implements Generator {
                 case TypeConst.BOOLEAN:
                     initValue = Boolean.valueOf(variable.getInitValue());
                     break;
+                case TypeConst.FLOAT:
+                    initValue = Float.valueOf(variable.getInitValue());
+                    break;
+                case TypeConst.DOUBLE:
+                    initValue = Double.valueOf(variable.getInitValue());
+                    break;
                 default:
                     throw new IllegalArgumentException("Variable type not known: " + variable.getType());
             }

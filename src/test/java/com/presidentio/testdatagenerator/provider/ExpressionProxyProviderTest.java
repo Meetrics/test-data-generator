@@ -121,5 +121,9 @@ public class ExpressionProxyProviderTest {
         Assert.assertEquals(2L, result);
         result = provider.nextValue(context, new Field(null, TypeConst.BOOLEAN, null));
         Assert.assertEquals(true, result);
+        result = provider.nextValue(context, new Field(null, TypeConst.FLOAT, null));
+        Assert.assertEquals(2F, result);
+        result = provider.nextValue(context, new Field(null, TypeConst.DOUBLE, null));
+        Assert.assertEquals(2D, result);
     }
 }

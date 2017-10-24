@@ -27,6 +27,10 @@ public class TypeConverter {
                 return (T) Integer.valueOf(value);
             case TypeConst.BOOLEAN:
                 return (T) Boolean.valueOf(value);
+            case TypeConst.DOUBLE:
+                return (T) Double.valueOf(value);
+            case TypeConst.FLOAT:
+                return (T) Float.valueOf(value);
             default:
                 throw new IllegalArgumentException("Type not known: " + type);
         }

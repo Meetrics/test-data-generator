@@ -89,5 +89,9 @@ public class ExpressionProviderTest {
         Assert.assertEquals(2L, result);
         result = expressionProvider.nextValue(context, new Field(null, TypeConst.BOOLEAN, null));
         Assert.assertEquals(true, result);
+        result = expressionProvider.nextValue(context, new Field(null, TypeConst.FLOAT, null));
+        Assert.assertEquals(2F, result);
+        result = expressionProvider.nextValue(context, new Field(null, TypeConst.DOUBLE, null));
+        Assert.assertEquals(2D, result);
     }
 }

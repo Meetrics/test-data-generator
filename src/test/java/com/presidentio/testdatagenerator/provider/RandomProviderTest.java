@@ -31,6 +31,7 @@ public class RandomProviderTest {
         Assert.assertNotNull(randomProvider.nextValue(new Context(null, null, null), new Field(null, TypeConst.STRING, null)));
         Assert.assertNotNull(randomProvider.nextValue(new Context(null, null, null), new Field(null, TypeConst.INT, null)));
         Assert.assertNotNull(randomProvider.nextValue(new Context(null, null, null), new Field(null, TypeConst.LONG, null)));
-
+        Assert.assertNotNull(randomProvider.nextValue(new Context(null, null, null), new Field(null, TypeConst.DOUBLE, null)));
+        Assert.assertNotNull(randomProvider.nextValue(new Context(null, null, null), new Field(null, TypeConst.FLOAT, null)));
     }
 }

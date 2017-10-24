@@ -49,6 +49,10 @@ public class ConstValueProvider implements ValueProvider {
                 return Integer.valueOf(value);
             case TypeConst.BOOLEAN:
                 return Boolean.valueOf(value);
+            case TypeConst.FLOAT:
+                return Float.valueOf(value);
+            case TypeConst.DOUBLE:
+                return Double.valueOf(value);
             default:
                 throw new IllegalArgumentException("Field type not known: " + type);
         }

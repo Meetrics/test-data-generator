@@ -114,6 +114,10 @@ public class SqlFormatter implements Formatter {
                 return value.toString();
             case TypeConst.BOOLEAN:
                 return value.toString();
+            case TypeConst.FLOAT:
+                return value.toString();
+            case TypeConst.DOUBLE:
+                return value.toString();
             default:
                 throw new IllegalArgumentException("Field type not known: " + type);
         }

@@ -57,6 +57,10 @@ public class RandomProvider implements ValueProvider {
                 return random.nextInt((int) size);
             case TypeConst.BOOLEAN:
                 return random.nextBoolean();
+            case TypeConst.FLOAT:
+                return random.nextFloat() % size;
+            case TypeConst.DOUBLE:
+                return random.nextDouble() % size;
             default:
                 throw new IllegalArgumentException("Field type not known: " + type);
         }

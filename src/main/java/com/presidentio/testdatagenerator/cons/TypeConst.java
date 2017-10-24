@@ -19,5 +19,9 @@ public class TypeConst {
     public static final String LONG = "long";
     public static final String INT = "int";
     public static final String BOOLEAN = "boolean";
+    // CDS-67: nw required types
+    public static final String DOUBLE = "double";
+    public static final String FLOAT = "float";
+    public static final String ARRAY = "array";
 
 }
