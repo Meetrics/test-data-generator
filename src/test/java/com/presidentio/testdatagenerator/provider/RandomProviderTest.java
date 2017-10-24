@@ -13,6 +13,7 @@
  */
 package com.presidentio.testdatagenerator.provider;
 
+import com.presidentio.testdatagenerator.cons.PropConst;
 import com.presidentio.testdatagenerator.cons.TypeConst;
 import com.presidentio.testdatagenerator.context.Context;
 import com.presidentio.testdatagenerator.model.Field;
@@ -20,13 +21,22 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RandomProviderTest {
 
     @Test
     public void testNextValue() throws Exception {
         RandomProvider randomProvider = new RandomProvider();
-        randomProvider.init(Collections.<String, String>emptyMap());
+
+        Map<String, String> props = new HashMap<>();
+        props.put(PropConst.MAX, "0");
+        props.put(PropConst.MIN, "0");
+        randomProvider.init(props);
+
+        //randomProvider.init(Collections.<String, String>emptyMap());
+
         Assert.assertNotNull(randomProvider.nextValue(new Context(null, null, null), new Field(null, TypeConst.BOOLEAN, null)));
         Assert.assertNotNull(randomProvider.nextValue(new Context(null, null, null), new Field(null, TypeConst.STRING, null)));
         Assert.assertNotNull(randomProvider.nextValue(new Context(null, null, null), new Field(null, TypeConst.INT, null)));

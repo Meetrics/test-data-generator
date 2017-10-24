@@ -26,14 +26,18 @@ public class RandomProvider implements ValueProvider {
 
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    private long size = 10;
+    private long min = -10;
+    private long max = 10;
     private Random random = new Random();
 
     @Override
     public void init(Map<String, String> props) {
         Map<String, String> propsCopy = new HashMap<>(props);
-        if (propsCopy.containsKey(PropConst.SIZE)) {
-            size = Long.valueOf(propsCopy.remove(PropConst.SIZE));
+        if (propsCopy.containsKey(PropConst.MIN)) {
+            min = Long.valueOf(propsCopy.remove(PropConst.MIN));
+        }
+        if (propsCopy.containsKey(PropConst.MAX)) {
+            max = Long.valueOf(propsCopy.remove(PropConst.MAX));
         }
         if (!propsCopy.isEmpty()) {
             throw new IllegalArgumentException("Redundant props for RandomProvider: " + propsCopy);
@@ -46,21 +50,23 @@ public class RandomProvider implements ValueProvider {
         String type = field.getType();
         switch (type) {
             case TypeConst.STRING:
-                StringBuilder result = new StringBuilder((int) size);
-                for (int i = 0; i < size; i++) {
+                int minLen = (min >= 0) ? (int)min : 0;
+                int len = random.nextInt((int)max - minLen + 1) + minLen;
+                StringBuilder result = new StringBuilder(len);
+                for (int i = 0; i < len; i++) {
                     result.append(ALPHABET.charAt(random.nextInt(ALPHABET.length())));
                 }
                 return result;
             case TypeConst.LONG:
-                return random.nextLong() % size;
+                return random.nextDouble() * (max - min) + min;
             case TypeConst.INT:
-                return random.nextInt((int) size);
+                return random.nextInt((int)max - (int)min + 1) + (int)min;
             case TypeConst.BOOLEAN:
                 return random.nextBoolean();
             case TypeConst.FLOAT:
-                return random.nextFloat() % size;
+                return random.nextFloat() * ( (float)max - (float)min ) + (float)min;
             case TypeConst.DOUBLE:
-                return random.nextDouble() % size;
+                return random.nextDouble() * ( (double)max - (double)min ) + (double)min;
             default:
                 throw new IllegalArgumentException("Field type not known: " + type);
         }

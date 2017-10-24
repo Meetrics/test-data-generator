@@ -41,5 +41,7 @@ public class PropConst {
     public static final String PATH_PROVIDER = "pathProvider";
     public static final String BROKER_LIST = "brokerList";
     public static final String GENDER = "gender";
-
+    // CDS-67: new types props
+    public static final String MIN = "min";
+    public static final String MAX = "max";
 }

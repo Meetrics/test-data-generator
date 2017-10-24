@@ -28,6 +28,9 @@ public class EmailProvider implements ValueProvider {
 
     private String domain = "email.com";
 
+    protected static final int minLocalPartLen = 5;
+    protected static final int maxLocalPartLen = 10;
+
     @Override
     public void init(Map<String, String> props) {
         Map<String, String> propsCopy = new HashMap<>(props);
@@ -38,7 +41,10 @@ public class EmailProvider implements ValueProvider {
             throw new IllegalArgumentException("Redundant props for " + getClass().getName() + ": " + propsCopy);
         }
         randomProvider = new RandomProvider();
-        randomProvider.init(Collections.<String, String>emptyMap());
+        Map<String, String> randomProps = new HashMap<>();
+        randomProps.put(PropConst.MIN, String.valueOf(minLocalPartLen));
+        randomProps.put(PropConst.MAX, String.valueOf(maxLocalPartLen));
+        randomProvider.init(randomProps);
 
     }
 

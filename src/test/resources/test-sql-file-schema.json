@@ -93,7 +93,8 @@
                     "provider": {
                         "name": "random",
                         "props": {
-                            "size": 10
+                            "min": 10,
+                            "max": 10
                         }
                     }
                 },
@@ -143,7 +144,8 @@
                     "provider": {
                         "name": "random",
                         "props": {
-                            "size": 10
+                            "min": 10,
+                            "max": 10
                         }
                     }
                 },
