@@ -60,13 +60,13 @@ public class RandomProvider implements ValueProvider {
             case TypeConst.LONG:
                 return random.nextDouble() * (max - min) + min;
             case TypeConst.INT:
-                return random.nextInt((int)max - (int)min + 1) + (int)min;
+                return random.nextInt((int)(max - min + 1)) + (int)min;
             case TypeConst.BOOLEAN:
                 return random.nextBoolean();
             case TypeConst.FLOAT:
-                return random.nextFloat() * ( (float)max - (float)min ) + (float)min;
+                return random.nextFloat() * ( (float)(max - min) ) + (float)min;
             case TypeConst.DOUBLE:
-                return random.nextDouble() * ( (double)max - (double)min ) + (double)min;
+                return random.nextDouble() * ( (double)(max - min) ) + (double)min;
             default:
                 throw new IllegalArgumentException("Field type not known: " + type);
         }

@@ -49,7 +49,8 @@ Properties:
 Return random value. Support all data types.
 
 Properties:
-* *size* - expression which will be evaluated. Expression can use variables declared in **variables** section. Default value: **10**
+* *min* - minimum (long) value for the random generated value (or length for strings). Default value: **5**
+* *max* - maximum (long) value for the random generated value (or length for strings). Default value: **10**
 
 ##### select
 
@@ -104,6 +105,16 @@ Properties:
 * *port* - required, elastic search node port
 * *clusterName* - required, elastic search cluster name
 * *index* - required, index name
+
+## Types
+
+Currently available types:
+* string
+* long
+* int
+* boolean
+* double
+* float
 
 ## Placeholders
 
